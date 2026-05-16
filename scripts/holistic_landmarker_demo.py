@@ -57,8 +57,9 @@ webcam = cv2.VideoCapture(0)
 start_time = time.time()
 
 # full screen
-cv2.namedWindow("Holistic Capture", cv2.WINDOW_NORMAL)
-cv2.setWindowProperty("Holistic Capture", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+WINDOW_NAME = "Holistic Capture"
+cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+cv2.setWindowProperty(WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
 with HolisticLandmarker.create_from_options(options) as landmarker:
     while webcam.isOpened():
@@ -87,7 +88,7 @@ with HolisticLandmarker.create_from_options(options) as landmarker:
         if result.right_hand_landmarks:
             draw_landmarks_safe(frame, result.right_hand_landmarks, (0, 0, 255))
 
-        cv2.imshow("Captura Holistic", frame)
+        cv2.imshow(WINDOW_NAME, frame)
 
         # press ESC to close
         if cv2.waitKey(1) & 0xFF == 27:  
