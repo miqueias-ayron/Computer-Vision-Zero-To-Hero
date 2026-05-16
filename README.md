@@ -1,1 +1,1 @@
-# Computer-Vision-Zero-To-Hero
+# Computer Vision: Zero To Hero
